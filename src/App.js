@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import CornerstoneImagePreview from './CornerstoneImagePreview';
 
 function App() {
@@ -6,11 +7,13 @@ const url = 'https://stgrippersistencedev.blob.core.windows.net/preview/combined
   return (
     <div className="App">
       <header className="App-header">
+        <Suspense fallback={<p>Loading...</p>}>
         <div className="flex gap-2">
           <div style={{width: '512px', height: '512px'}}>
             <CornerstoneImagePreview url={url} />
           </div>
         </div>
+        </Suspense>
       </header>
     </div>
   );
